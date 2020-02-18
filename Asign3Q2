@@ -1,0 +1,54 @@
+//Blanca Nino
+//Assignment 3 Question 2
+
+#include <iostream>
+using namespace std;
+int main (){
+//create an array named 'numbers' of 6 element
+int numbers[6];
+//elements of array are integers
+int * p;
+//p is the index number of the array 
+//p = numbers: sets to 0th index in array
+p = numbers;
+// assigns (*p) this 0th index value 1
+*p = 1;
+
+//p++ moves to next index in array
+p++;
+// assigns (*p) index 1 (2nd place) value 4
+*p = 4;
+
+//set to index 2 in array 'numbers'
+//so the third space is assigned a value
+p = &numbers[2];
+//assigns same value as the 0th index in this array
+*p = numbers[0];
+
+//sets p to 0th index in array, then + pointer *p which is currently set at 1
+//so it goes back and rewrites the 1st index value, second place as this new value
+p = numbers + *p;
+*p = 4;
+
+
+//sets p to 0th index in array, then + 1, so 1st index in array
+p = numbers+1;
+//cuurently at 1st index in array, + 4 = 5th index in array value 5
+*(p+4) = 5;
+
+//since value for 3rd index is not specified, it is 0
+//I CANNOT figure out why 4th element is 2
+
+
+cout << "Numbers : "
+     <<numbers[0]
+<<" "<<numbers[1]
+<<" "<<numbers[2]
+<<" "<<numbers[3]
+<<" "<<numbers[4]
+<<" "<<numbers[5]
+<<endl;
+return 0;}
+
+
+//will print out 1 4 1 0 2 5
