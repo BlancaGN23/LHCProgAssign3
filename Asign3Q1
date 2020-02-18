@@ -1,0 +1,45 @@
+//Blanca Nino
+//Assignment 3, Question 1
+//Input numbers from a file and do calculations on them
+
+//standard headers and maybe some extra for good measure
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <vector>
+#include <math.h>
+using namespace std;
+
+int main(int argc, char * argv[]){
+int sum = 0;
+
+//calls file in specific directory
+std::fstream myfile ("/home/ubuntu/Desktop/assign3/numbers.txt",
+std::ios_base::in);
+//define variables 
+  float x;
+  float Qsum = 0;
+  float Qavg = 0;
+  float RMS = 0;
+  float TRMS = 0;
+  float size = 0;
+
+  while (myfile >>x){
+    //reading through the lines in the input file, complete calculations 
+    //read the size of the vector file by adding 1 for each line read
+      size = size + 1;
+      Qsum = Qsum +x;
+    //RMS sums the squares of each value
+    RMS = RMS+(x*x);}
+    
+    //now that out of loop, doing calculations with final values
+    Qavg = Qsum/size;
+     TRMS = sqrt(RMS/size);
+     
+    //print stuff out
+    cout<<"The average is  "<<Qavg<<endl;
+    cout<<"The sum is  "<<Qsum<<endl;
+    cout<<"The rms is  "<<TRMS<<endl;
+    
+     return 0;
+}
